@@ -1,5 +1,7 @@
 # elm-package generated files
-elm-package.json
-elm-stuff/
+web/elm/elm-package.json
+web/elm/elm-stuff/
 # elm-repl generated files
 repl-temp-*
+# elm-brunch compiled artefacts
+web/static/vendor/
