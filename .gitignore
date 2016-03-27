@@ -1,7 +1,7 @@
 # elm-package generated files
-web/elm/elm-package.json
-web/elm/elm-stuff/
+seat_saver/web/elm/elm-package.json
+seat_saver/web/elm/elm-stuff/
 # elm-repl generated files
 repl-temp-*
 # elm-brunch compiled artefacts
-web/static/vendor/
+seat_saver/web/static/vendor/
