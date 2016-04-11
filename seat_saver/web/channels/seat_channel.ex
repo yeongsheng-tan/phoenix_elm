@@ -23,6 +23,20 @@ defmodule SeatSaver.SeatChannel do
     {:noreply, socket}
   end
 
+  def handle_in("request_seat", payload, socket) do
+    seat = Repo.get!(SeatSaver.Seat, payload["seatNo"] )
+    seat_params = %{occupied: !payload["occupied"]}
+    changeset = SeatSaver.Seat.changeset(seat, seat_params)
+
+    case Repo.update(changeset) do
+      {:ok, seat} ->
+        broadcast socket, "seat_updated", seat
+        {:noreply, socket}
+      {:error, _changeset} ->
+        {:reply, {:error, %{message: "Something went wrong."}}, socket}
+    end
+  end
+
   # This is invoked every time a notification is being broadcast
   # to the client. The default implementation is just to push it
   # downstream but one could filter or change the event.
